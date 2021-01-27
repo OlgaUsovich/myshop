@@ -1,0 +1,10 @@
+{% extends 'shop/base.html' %}
+{% block title %} Страница регистрации{% endblock %}
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>ok</button>
+    </form>
+
+{% endblock %}

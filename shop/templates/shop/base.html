@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My shop{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<div class="header">
+
+    <a href="/" class="logo">
+        <img src="{% static 'img/logo.png' %}" alt="" class="logo-img">
+    </a>
+    <h1 class="magasin">Мой интернет магазин</h1>
+    <div class="wrapper-btn">
+        {% if user.is_authenticated %}
+            <a href="{% url 'shop:logout' %}" class="btn">Exit</a>
+            <a href="{% url 'shop:change_password' %}" class="btn">Change password</a>
+        {% else %}
+            <a href="{% url 'shop:login' %}" class="btn">Log in</a>
+            <a href="{% url 'shop:register' %}" class="btn">Registration</a>
+        {% endif %}
+    </div>
+</div>
+<!--<form action="http://127.0.0.1:8000/api/" method="POST" class="form">-->
+<!--    {% csrf_token %}-->
+<!--    <div class="input-wrapper">-->
+<!--    <input type="text" name="login" placeholder="Введите логин" class="input"><br><br>-->
+<!--    <input type="password" name="pass" placeholder="Введите пароль" class="input"><br><br>-->
+<!--    <input type="submit" value="OK" class="btn">-->
+<!--    </div>-->
+<!--</form>-->
+
+<div class="block-book">
+    <a href="{% url 'book:book' %}">Книги</a>
+    <a href="">Электронные Книги</a>
+    <a href="">Антиквариат</a>
+</div>
+
+<form action="http://127.0.0.1:8000/api/" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="login" placeholder="login"><strong style="color: {{ color }}">{{ error }}</strong><strong
+        style="color: {{ color }}">{{ warning }}</strong><strong style="color: {{ color }}">{{ success }}</strong><br>
+    <input type="text" name="Email" placeholder="email"><br>
+    <input type="password" placeholder="пароль1" name="pass1"><br>
+    <input type="password" placeholder="пароль2" name="pass2"><br>
+    <button>отправить</button>
+</form>
+<div>
+    {% for data in dataDbUser %}
+        <p>{{ data.username }}</p>
+    {% endfor %}
+</div>
+
+<div>
+    <form action="http://127.0.0.1:8000/api/" method="post">
+    {% csrf_token %}
+   <p><button type="submit">Нажать</button></p>
+    </form>
+</div>
+<div>
+    {% for data in R %}
+        <p>{{ data.password }}</p>
+    {% endfor %}
+</div>
+
+<div class="content">
+{{ s }}
+
+    {% block content %}
+        {% block main %}
+        {% endblock %}
+    {% endblock %}
+
+
+</div>
+
+</body>
+</html>

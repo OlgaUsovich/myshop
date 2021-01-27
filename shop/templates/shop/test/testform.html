@@ -1,0 +1,25 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block title %}
+    TestForm
+{% endblock %}
+
+{% block content %}
+    Content
+<div> gujhbjh </div>
+{% block main %}
+    <form action="http://127.0.0.1:8000/testform/" method="POST" class="form1">
+        {% csrf_token %}
+<!--        <lable>Введите логин</lable><br>-->
+<!--        <input type="text" name="Login" placeholder="Введите логин"><br>-->
+<!--        <lable>Введите пароль</lable><br>-->
+<!--        <input type="password" name="Password" placeholder="Введите пароль"><br>-->
+        {{ form.as_p }}
+        <button>OK</button>
+
+    </form>
+{% endblock %}
+{% endblock %}
+
+

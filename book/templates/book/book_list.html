@@ -1,0 +1,31 @@
+{% extends 'book/book.html' %}
+{% load static directory_filter %}
+{% block title %}
+    Список книг
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        {% for book in books %}
+            <div class="item-book">
+                <p>Название книги:<br>
+                    <strong>{{ book.name }}</strong><br></p>
+                <p>Цена: {{ book.price }}$<br></p>
+                <p>Жанр: {{ book.genres.all|join:", " }}<br></p>
+                {#            <p>Автор: {{ book.author.all|join:" "}}<br>#}
+                Автор:
+                {% for author in book.author.all %}
+                    <p style="margin-top: 0; margin-bottom: 0;"> {{ author }}</p>
+                    <p style="margin-top: 0;">{% if aliases|get_item:author.id %}Псевдоним: {{ aliases|get_item:author.id }}{% endif %}</p>
+                {% endfor %}
+                {#        {% for g in arr.len %}#}
+                {#            <p>{{ arr[g] }}</p>#}
+                {#        {% endfor %}#}
+                <img class="image" src="
+                        {% if book.image %}{{ book.image.url }}{% else %}{% static "img/no_image_book.png" %}{% endif %}"
+                     alt="Картинка">
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

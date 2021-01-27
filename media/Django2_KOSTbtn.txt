@@ -1,0 +1,142 @@
+порация Майкрософт (Microsoft Corporation), 2018. Все права защищены.
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py makemigrations
+No changes detected
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying auth.0010_alter_group_name_max_length... OK
+  Applying auth.0011_update_proxy_permissions... OK
+  Applying auth.0012_alter_user_first_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py runserver
+Watching for file changes with StatReloader
+Performing system checks...
+
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "C:\Program Files (x86)\Python38-32\lib\threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "C:\Program Files (x86)\Python38-32\lib\threading.py", line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\utils\autoreload.
+py", line 53, in wrapper
+    fn(*args, **kwargs)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\core\management\c
+ommands\runserver.py", line 118, in inner_run
+    self.check(display_num_errors=True)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\core\management\b
+ase.py", line 392, in check
+    all_issues = checks.run_checks(
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\core\checks\regis
+try.py", line 70, in run_checks
+    new_errors = check(app_configs=app_configs, databases=databases)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\core\checks\urls.
+py", line 13, in check_url_config
+    return check_resolver(resolver)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\core\checks\urls.
+py", line 23, in check_resolver
+    return check_method()
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\urls\resolvers.py
+", line 408, in check
+    for pattern in self.url_patterns:
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\utils\functional.
+py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\urls\resolvers.py
+", line 589, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\utils\functional.
+py", line 48, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "C:\Users\Lenovo\PycharmProjects\Django\venv\lib\site-packages\django\urls\resolvers.py
+", line 582, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "C:\Program Files (x86)\Python38-32\lib\importlib\__init__.py", line 127, in import_mod
+ule
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Lenovo\PycharmProjects\Django\mysite\mysite\urls.py", line 18, in <module>
+    from .views import index
+ModuleNotFoundError: No module named 'mysite.views'
+C:\Users\Lenovo\PycharmProjects\Django\mysite\mysite\urls.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 09, 2020 - 21:35:17
+Django version 3.1.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+Not Found: /
+[09/Nov/2020 21:35:24] "GET / HTTP/1.1" 404 2026
+Not Found: /main/asd
+[09/Nov/2020 21:36:43] "GET /main/asd HTTP/1.1" 404 2068
+[09/Nov/2020 21:36:44] "GET /main HTTP/1.1" 301 0
+[09/Nov/2020 21:36:44] "GET /main/ HTTP/1.1" 200 12
+C:\Users\Lenovo\PycharmProjects\Django\mysite\main\models.py changed, reloading.
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 09, 2020 - 21:47:02
+Django version 3.1.3, using settings 'mysite.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py makemigrations
+Migrations for 'main':
+  main\migrations\0001_initial.py
+    - Create model Card
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, main, sessions
+Running migrations:
+  Applying main.0001_initial... OK
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py sqlmigrate main 0001
+BEGIN;
+--
+-- Create model Card
+--
+CREATE TABLE "main_card" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "title" varchar(50)
+ NOT NULL, "content" text NULL, "price" real NULL, "published" datetime NOT NULL);
+CREATE INDEX "main_card_published_84fd17d0" ON "main_card" ("published");
+COMMIT;
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, main, sessions
+Running migrations:
+  No migrations to apply.
+
+(venv) C:\Users\Lenovo\PycharmProjects\Django\mysite>python manage.py shell
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 22:45:29) [MSC v.1916 32 bit (Intel)] on win32
+
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from main.models import Card
+>>> card1 = Card(title = 'Нокия 3310', content = 'Крутой телефон', price = 100)
+>>> card1.save()
+>>> card1.pk

@@ -1,0 +1,43 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{category.name}}{% else %}Продукты{% endif %}
+{% endblock %}
+{% block content %}
+
+    <div id="sidebar">
+        <h3>Категории</h3>
+        <ul>
+            <li {% if not category %} class="selected"{% endif %}>
+                <a href="{% url 'shop:product_list' %}">Все продукты</a>
+            </li>
+
+        {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected" {% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+<div>
+    <form action="http://127.0.0.1:8000/saveuser/" method="POST">
+        {% csrf_token %}
+        <input type="text" name="login" placeholder="Login"><br/>
+        <input type="password" name="password" placeholder="Password"><br/>
+        <button>OK</button>
+    </form>
+</div>
+    <div id="main" class="product-list">
+        <h1>{% if category %}{{category.name}}{% else %}Продукты{% endif %}</h1>
+        {% for product in products %}
+            <div class="item">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" alt="Картинка товара">
+                </a>
+                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                ${{ product.price }}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

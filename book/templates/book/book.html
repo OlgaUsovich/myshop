@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Каталог книг{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/book.css' %}">
+</head>
+<body>
+<div class="header-container">
+    <nav>
+        <ul class="header-ul">
+            <li><a href="{% url 'book:book_list' %}">Все книги</a></li>
+            <li><a href="">Авторы</a></li>
+            <li><a href="">Жанры</a></li>
+            <li class="add-book"><a href="" id="red">Добавить книгу</a></li>
+        </ul>
+    </nav>
+
+</div>
+<form action="" class="form-search">
+    <input type="text" placeholder="Найти книгу">
+    <input type="submit" value="Найти">
+</form>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
